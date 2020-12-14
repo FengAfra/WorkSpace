@@ -43,16 +43,27 @@ int BubbleSort(T *aArray, int aCount)
 
 int main(int argc, char ** argv)
 {
-	int array[] = { 49,38,65,97,76,13,27,49,10 };
-	int size = sizeof(array) / sizeof(int);
+	int iArray[] = { 49,38,65,97,76,13,27,49,10 };
+	int iSize = sizeof(iArray) / sizeof(int);
 	
 	cout <<"排序前："<<endl;
-	PrintArray(array, size);
+	PrintArray(iArray, iSize);
 	
-	BubbleSort(array, size);
+	BubbleSort(iArray, iSize);
 	
 	cout <<"排序后："<<endl;
-	PrintArray(array, size);
+	PrintArray(iArray, iSize);
+	
+	double dArray[] = { 12.3,90.0,123.44,22.5,99.4,34.6,23.3,78.5,20.0 };
+	int dSize = sizeof(dArray) / sizeof(int);
+	
+	cout <<"排序前："<<endl;
+	PrintArray(dArray, dSize);
+	
+	BubbleSort(dArray, dSize);
+	
+	cout <<"排序后："<<endl;
+	PrintArray(dArray, dSize);
 	
 	return sSUCCESS;
 }
