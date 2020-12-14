@@ -26,7 +26,7 @@ int ShellSort(T *aArray, int aCount)
 	{
 		for(int i = gap; i < aCount; i++)
 		{
-			int j = gap;
+			int j = i;
 			T temp = aArray[j];
 			if(aArray[j] < aArray[j - gap])
 			{
