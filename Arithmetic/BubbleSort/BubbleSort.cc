@@ -1,21 +1,23 @@
 #include <iostream>
 using namespace std;
 
-typedef sSSUCCESS	0
-typedef sERROR  -1
+#define sSUCCESS	0
+#define sERROR  -1
 
 template<class T>
 
 int PrintArray(T *aArray, int aCount)
 {
+	cout<<"aArray[]=";
 	for (int i = 0; i < aCount; i++)
 	{
-		cout<<"aArray["<<i<<"]=">>aArray[i]<<"   ";
+		cout<<aArray[i]<<"   ";
 	}
 	cout<<endl;
 	return sSUCCESS;
 }
 
+template<class T>
 int BubbleSort(T *aArray, int aCount)
 {
 	if(0 == aCount || NULL == aArray)
@@ -36,7 +38,7 @@ int BubbleSort(T *aArray, int aCount)
 		}
 		aCount--;		//一轮遍历结束，得到最大的数值在最右边。因此缩短遍历的长度。
 	}
-	return sSSUCCESS; 
+	return sSUCCESS; 
 }
 
 int main(int argc, char ** argv)
