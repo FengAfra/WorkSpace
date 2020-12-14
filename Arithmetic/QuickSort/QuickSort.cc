@@ -79,7 +79,7 @@ int main(int argc, char ** argv)
 	cout <<"排序前："<<endl;
 	PrintArray(iArray, iSize);
 	
-	BubbleSort(iArray, iSize);
+	QuickSort(iArray, 0, iSize);
 	
 	cout <<"排序后："<<endl;
 	PrintArray(iArray, iSize);
@@ -90,7 +90,7 @@ int main(int argc, char ** argv)
 	cout <<"排序前："<<endl;
 	PrintArray(dArray, dSize);
 	
-	BubbleSort(dArray, dSize);
+	QuickSort(dArray, 0, dSize);
 	
 	cout <<"排序后："<<endl;
 	PrintArray(dArray, dSize);
