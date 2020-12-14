@@ -36,6 +36,7 @@ int InsertSort(T *aArray, int aCount)
 		}
 		aArray[j + 1] = temp;					//跳出内层循环后插入在合适的位置
 	}
+	return sSUCCESS;
 }
 
 int main(int argc, char ** argv)
