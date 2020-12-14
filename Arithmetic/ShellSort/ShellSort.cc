@@ -16,6 +16,7 @@ int PrintArray(T *aArray, int aCount)
 	return sSUCCESS;
 }
 
+template<class T>
 int ShellSort(T *aArray, int aCount)
 {
 	if(0 == aCount || NULL == aArray)
