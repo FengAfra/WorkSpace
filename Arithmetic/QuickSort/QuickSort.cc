@@ -59,13 +59,13 @@ int QuickSort(T *aArray, int aLow, int aHigh)
 	if(aLow < aHigh)
 	{
 		//分段位置下标
-		int standard = GetStandard(aArray, aLow, aHigh);
+		int standard = GetStandard<T>(aArray, aLow, aHigh);
 		//递归调用排序
 		//左边排序 
-		if(sSUCCESS != QuickSort(aArray, aLow, standard - 1))
+		if(sSUCCESS != QuickSort<T>(aArray, aLow, standard - 1))
 			return sERROR;
 		//右边排序 
-		if(sSUCCESS != QuickSort(aArray, standard + 1, aHigh))
+		if(sSUCCESS != QuickSort<T>(aArray, standard + 1, aHigh))
 			return sERROR;
 	}
 	return sSUCCESS;
@@ -77,23 +77,23 @@ int main(int argc, char ** argv)
 	int iSize = sizeof(iArray) / sizeof(int);
 	
 	cout <<"排序前："<<endl;
-	PrintArray(iArray, iSize);
+	PrintArray<int>(iArray, iSize);
 	
-	QuickSort(iArray, 0, iSize);
+	QuickSort<int>(iArray, 0, iSize);
 	
 	cout <<"排序后："<<endl;
-	PrintArray(iArray, iSize);
+	PrintArray<int>(iArray, iSize);
 	
 	double dArray[] = { 12.3,90.0,123.44,22.5,99.4,34.6,23.3,78.5,20.0 };
 	int dSize = sizeof(dArray) / sizeof(double);
 	
 	cout <<"排序前："<<endl;
-	PrintArray(dArray, dSize);
+	PrintArray<double>(dArray, dSize);
 	
-	QuickSort(dArray, 0, dSize);
+	QuickSort<double>(dArray, 0, dSize);
 	
 	cout <<"排序后："<<endl;
-	PrintArray(dArray, dSize);
+	PrintArray<double>(dArray, dSize);
 	
 	return sSUCCESS;
 };
