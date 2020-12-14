@@ -55,7 +55,7 @@ int main(int argc, char ** argv)
 	PrintArray(iArray, iSize);
 	
 	double dArray[] = { 12.3,90.0,123.44,22.5,99.4,34.6,23.3,78.5,20.0 };
-	int dSize = sizeof(dArray) / sizeof(int);
+	int dSize = sizeof(dArray) / sizeof(double);
 	
 	cout <<"排序前："<<endl;
 	PrintArray(dArray, dSize);
