@@ -19,7 +19,7 @@ int PrintArray(T *aArray, int aCount)
 template<class T>
 int GetStandard(T *aArray, int aLow, int aHigh)
 {
-	if(NULL == aArray || aHigh <= aLow)	//如果数组为空，并且基准值high<=low
+	if(NULL == aArray)	//如果数组为空
 		return sERROR;
 	
 	//基准数据 
@@ -53,7 +53,7 @@ int GetStandard(T *aArray, int aLow, int aHigh)
 template<class T>
 int QuickSort(T *aArray, int aLow, int aHigh)
 {
-	if(NULL == aArray || aHigh <= aLow)	//如果数组为空，并且基准值high<=low
+	if(NULL == aArray)	//如果数组为空
 		return sERROR;
 		
 	if(aLow < aHigh)
@@ -83,7 +83,7 @@ int main(int argc, char ** argv)
 	
 	cout <<"排序后："<<endl;
 	PrintArray(iArray, iSize);
-	
+	/*
 	double dArray[] = { 12.3,90.0,123.44,22.5,99.4,34.6,23.3,78.5,20.0 };
 	int dSize = sizeof(dArray) / sizeof(double);
 	
@@ -94,6 +94,6 @@ int main(int argc, char ** argv)
 	
 	cout <<"排序后："<<endl;
 	PrintArray(dArray, dSize);
-	
+	*/
 	return sSUCCESS;
 };
