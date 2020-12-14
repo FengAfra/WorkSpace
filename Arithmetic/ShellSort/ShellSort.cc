@@ -22,16 +22,20 @@ int ShellSort(T *aArray, int aCount)
 	if(0 == aCount || NULL == aArray)
 		return sERROR;
 	
-	for(int i = aCount/2; i > 0; i/=2)
+	for(int gap = aCount/2; gap > 0; gap/=2)
 	{
-		int j = i;
-		while(j - i >= 0 && aArray[j - i] > aArray[j])
+		for(int i = gap; i < aCount; i++)
 		{
-			aArray[j - i] = aArray[j - i] + aArray[j];
-			aArray[j]     = aArray[j - i] - aArray[j];
-			aArray[j - i] = aArray[j - i] - aArray[j];
-			j = j - i;
+			int j = gap;
+			while(j - gap >= 0 && aArray[j - gap] > aArray[j])
+			{
+				aArray[j - gap] = aArray[j - gap] + aArray[j];
+				aArray[j]       = aArray[j - gap] - aArray[j];
+				aArray[j - gap] = aArray[j - gap] - aArray[j];
+				j = j - gap;
+			}		
 		}
+		
 	}
 	return sSUCCESS;
 }
