@@ -44,7 +44,7 @@ int main(int argc, char ** argv)
 	cout <<"排序前："<<endl;
 	PrintArray<int>(iArray, iSize);
 	
-	QuickSort<int>(iArray, 0, iSize - 1);
+	ShellSort<int>(iArray, 0, iSize - 1);
 	
 	cout <<"排序后："<<endl;
 	PrintArray<int>(iArray, iSize);
@@ -55,7 +55,7 @@ int main(int argc, char ** argv)
 	cout <<"排序前："<<endl;
 	PrintArray<double>(dArray, dSize);
 	
-	QuickSort<double>(dArray, 0, dSize - 1);
+	ShellSort<double>(dArray, 0, dSize - 1);
 	
 	cout <<"排序后："<<endl;
 	PrintArray<double>(dArray, dSize);
