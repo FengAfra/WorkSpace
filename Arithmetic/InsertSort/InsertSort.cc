@@ -46,7 +46,7 @@ int main(int argc, char ** argv)
 	cout <<"排序前："<<endl;
 	PrintArray(iArray, iSize);
 	
-	BubbleSort(iArray, iSize);
+	InsertSort(iArray, iSize);
 	
 	cout <<"排序后："<<endl;
 	PrintArray(iArray, iSize);
@@ -57,7 +57,7 @@ int main(int argc, char ** argv)
 	cout <<"排序前："<<endl;
 	PrintArray(dArray, dSize);
 	
-	BubbleSort(dArray, dSize);
+	InsertSort(dArray, dSize);
 	
 	cout <<"排序后："<<endl;
 	PrintArray(dArray, dSize);
