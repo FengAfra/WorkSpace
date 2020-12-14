@@ -27,13 +27,18 @@ int ShellSort(T *aArray, int aCount)
 		for(int i = gap; i < aCount; i++)
 		{
 			int j = gap;
-			while(j - gap >= 0 && aArray[j - gap] > aArray[j])
+			T temp = aArray[j];
+			if(aArray[j] < aArray[j - gap])
 			{
-				aArray[j - gap] = aArray[j - gap] + aArray[j];
-				aArray[j]       = aArray[j - gap] - aArray[j];
-				aArray[j - gap] = aArray[j - gap] - aArray[j];
-				j = j - gap;
-			}		
+				while(j - gap >= 0 && aArray[j - gap] > aArray[j])
+				{
+					aArray[j - gap] = aArray[j - gap] + aArray[j];
+					aArray[j]       = aArray[j - gap] - aArray[j];
+					aArray[j - gap] = aArray[j - gap] - aArray[j];
+					j = j - gap;
+				}	
+			}
+			aArray[j] = temp;
 		}
 		
 	}
