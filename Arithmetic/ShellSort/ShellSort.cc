@@ -22,9 +22,9 @@ int ShellSort(T *aArray, int aCount)
 	if(0 == aCount || NULL == aArray)
 		return sERROR;
 	
-	for(int gap = aCount/2; gap > 0; gap/=2)
+	for(int gap = aCount/2; gap > 0; gap/=2)	//先两个数值排序，然后倍量处理
 	{
-		for(int i = gap; i < aCount; i++)
+		for(int i = gap; i < aCount; i++)		//gap所在的组，进行直接插入排序
 		{
 			int j = i;
 			T temp = aArray[j];
@@ -32,7 +32,7 @@ int ShellSort(T *aArray, int aCount)
 			{
 				while(j - gap >= 0 && aArray[j - gap] > aArray[j])
 				{
-					aArray[j - gap] = aArray[j - gap] + aArray[j];
+					aArray[j - gap] = aArray[j - gap] + aArray[j];		//交换
 					aArray[j]       = aArray[j - gap] - aArray[j];
 					aArray[j - gap] = aArray[j - gap] - aArray[j];
 					j = j - gap;
