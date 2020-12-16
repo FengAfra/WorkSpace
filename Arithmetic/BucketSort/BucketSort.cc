@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 using namespace std;
 
 #define sSUCCESS	0
@@ -18,7 +19,6 @@ int PrintArray(T *aArray, int aCount)
 	return sSUCCESS;
 }
 
-template<class T>
 int BucketSort(int *aArray, int aCount, int aMax)
 {
 	if( NULL == aArray || aCount < 1 || aMax < 1 )
