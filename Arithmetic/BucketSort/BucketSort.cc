@@ -25,7 +25,7 @@ int BucketSort(int *aArray, int aCount, int aMax)
 		return sERROR;
 
 	int i, j;
-	int *buckets = (int*)malloc(aMax * sizeof(int);
+	int *buckets = (int*)malloc(aMax * sizeof(int));
 
 	if( buckets == NULL)
 		return sERROR;
