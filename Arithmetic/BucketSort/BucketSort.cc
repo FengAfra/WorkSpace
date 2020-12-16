@@ -35,7 +35,7 @@ int BucketSort(int *aArray, int aCount, int aMax)
 	for(i = 0; i < aCount; i++)
 		buckets[aArray[i]]++;
 	
-	for(i = 0, j = 0; j < aMax; i++)
+	for(i = 0, j = 0; i < aMax; i++)
 		while((buckets[i]--) > 0)
 			aArray[j++] = i;
 
