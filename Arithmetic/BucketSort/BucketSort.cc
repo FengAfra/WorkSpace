@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
 using namespace std;
 
 #define sSUCCESS	0
@@ -29,6 +31,9 @@ int BucketSort(int *aArray, int aCount, int aMax)
 	
 	memset(buckets, 0, aMax * sizeof(int));
 	
+	for(i = 0; i < aCount; i++)
+		buckets[aArray[i]]++;
+	
 	for(i = 0, j = 0; j < aMax; i++)
 		while((buckets[i]--) > 0)
 			aArray[j++] = i;
@@ -44,7 +49,7 @@ int main(int argc, char ** argv)
 	cout <<"排序前："<<endl;
 	PrintArray<int>(iArray, iSize);
 	
-	BucketSort(iArray, iSize, 200);
+	BucketSort(iArray, iSize, 100);
 	
 	cout <<"排序后："<<endl;
 	PrintArray<int>(iArray, iSize);
