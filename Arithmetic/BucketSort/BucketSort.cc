@@ -29,7 +29,7 @@ int BucketSort(int *aArray, int aCount, int aMax)
 	if(( buckets = (int*)malloc(aMax * sizeof(int))) = NULL)
 		return sERROR;
 	
-	memset(buckets, 0, aMax * sizeof(int));
+	memset(buckets, 0, sizeof(buckets));
 	
 	for(i = 0; i < aCount; i++)
 		buckets[aArray[i]]++;
