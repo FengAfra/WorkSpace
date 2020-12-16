@@ -19,13 +19,14 @@ int PrintArray(T *aArray, int aCount)
 	return sSUCCESS;
 }
 
-int BucketSort(int *aArray, int aCount, int aMax)
+template<class T>
+int BucketSort(T *aArray, int aCount, int aMax)
 {
 	if( NULL == aArray || aCount < 1 || aMax < 1 )
 		return sERROR;
 
 	int i, j;
-	int *buckets = (int*)malloc(aMax * sizeof(int));
+	T *buckets = (int*)malloc(aMax * sizeof(T));
 
 	if( buckets == NULL)
 		return sERROR;
@@ -50,21 +51,21 @@ int main(int argc, char ** argv)
 	cout <<"排序前："<<endl;
 	PrintArray<int>(iArray, iSize);
 	
-	BucketSort(iArray, iSize, 100);
+	BucketSort<int>(iArray, iSize, 100);
 	
 	cout <<"排序后："<<endl;
 	PrintArray<int>(iArray, iSize);
-	/*
-	double dArray[] = { 12.3,90.0,123.44,22.5,99.4,34.6,23.3,78.5,20.0 };
+	
+	double dArray[] = { 12.3,90.0,23.44,22.5,99.4,34.6,23.3,78.5,20.0 };
 	int dSize = sizeof(dArray) / sizeof(double);
 	
 	cout <<"排序前："<<endl;
 	PrintArray<double>(dArray, dSize);
 	
-	BucketSort<double>(dArray, dSize);
+	BucketSort<double>(dArray, dSize, 100);
 	
 	cout <<"排序后："<<endl;
 	PrintArray<double>(dArray, dSize);
-	*/
+	
 	return sSUCCESS;
 };
