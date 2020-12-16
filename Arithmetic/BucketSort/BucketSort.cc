@@ -1,7 +1,11 @@
 #include <iostream>
+extern "C"
+{
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+	
+}
 using namespace std;
 
 #define sSUCCESS	0
@@ -24,12 +28,15 @@ int BucketSort(int *aArray, int aCount, int aMax)
 	if( NULL == aArray || aCount < 1 || aMax < 1 )
 		return sERROR;
 	int i, j;
-	int *buckets;
-	
+	int *buckets = NULL;
+
+extern "C" {
 	if(( buckets = (int*)malloc(aMax * sizeof(int))) = NULL)
 		return sERROR;
 	
 	memset(buckets, 0, sizeof(buckets));
+}
+	
 	
 	for(i = 0; i < aCount; i++)
 		buckets[aArray[i]]++;
