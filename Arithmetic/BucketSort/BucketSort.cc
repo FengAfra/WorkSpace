@@ -19,14 +19,13 @@ int PrintArray(T *aArray, int aCount)
 	return sSUCCESS;
 }
 
-template<class T>
-int BucketSort(T *aArray, int aCount, int aMax)
+int BucketSort(int *aArray, int aCount, int aMax)
 {
 	if( NULL == aArray || aCount < 1 || aMax < 1 )
 		return sERROR;
 
 	int i, j;
-	T *buckets = (T*)malloc(aMax * sizeof(T));
+	int *buckets = (int*)malloc(aMax * sizeof(int));
 
 	if( buckets == NULL)
 		return sERROR;
@@ -41,6 +40,47 @@ int BucketSort(T *aArray, int aCount, int aMax)
 			aArray[j++] = i;
 
 	free(buckets);
+	return sSUCCESS;
+}
+
+void Insert(vector<double>& bkt, T num)
+{
+	for(vector<double>::iterator iter = bkt.begin(); iter != bkt.end(); iter++)
+	{
+		if(*iter > num)
+		{
+			bkt.insert(iter, num);
+			return;
+		}
+	}
+	bkt.push_back(num);
+}
+
+void BucketSort_template(double* const begin, double* const end)
+{
+	int n = end - begin;
+	int i;
+	vector<vector<double*>> bucket(n);
+	
+	for(i = 0; i < n; i++)
+		bucket[i] = new vector<double>;
+	
+	for(i = 0; i < n; i++)
+		Insert(*bucket[static_cast<int>(*(begin + i) * n)], *(begin + i));
+	
+	int j = 0, k = 0;
+	for(i = 0; j < n; i++)
+	{
+		while(k >= bucket[j]->size())
+		{
+			++j;
+			k = 0;
+		}
+		*(begin + i) = (*bucket[j])[k++];
+	}
+	
+	for(i = 0; i < n; i ++)
+		delete bucket[i];
 }
 
 int main(int argc, char ** argv)
@@ -51,21 +91,24 @@ int main(int argc, char ** argv)
 	cout <<"排序前："<<endl;
 	PrintArray<int>(iArray, iSize);
 	
-	BucketSort<int>(iArray, iSize, 100);
+	BucketSort(iArray, iSize, 100);
 	
 	cout <<"排序后："<<endl;
 	PrintArray<int>(iArray, iSize);
 	
-	double dArray[] = { 12.3,90.0,23.44,22.5,99.4,34.6,23.3,78.5,20.0 };
+	
+	BucketSort_template(0.0, 1.0);
+	/*
+	double dArray[] = { 12.3,90.0,123.44,22.5,99.4,34.6,23.3,78.5,20.0 };
 	int dSize = sizeof(dArray) / sizeof(double);
 	
 	cout <<"排序前："<<endl;
 	PrintArray<double>(dArray, dSize);
 	
-	BucketSort<double>(dArray, dSize, 100);
+	BucketSort_template(dArray, dSize);
 	
 	cout <<"排序后："<<endl;
 	PrintArray<double>(dArray, dSize);
-	
+	*/
 	return sSUCCESS;
 };
