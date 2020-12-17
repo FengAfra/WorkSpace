@@ -22,7 +22,7 @@ int PrintArray(T *aArray, int aCount)
 
 //将b数组中的全部元素置0
 template<class T>
-int zeroBucket(T *b[10], int len)
+int zeroBucket(T b[10][len+1])
 {
 	for(int i = 0; i < 10; i++)
 		for(int j = 0; j < len + 1; j++)
@@ -49,7 +49,7 @@ int numOfDigits(T *aArray, int len)
 }
 
 template<class T>
-int collectElments(T *aArray, T *b[10])
+int collectElments(T *aArray, T b[10][len+1])
 {
 	int k = 0;
 	for(int i = 0; i < 10; i++)
@@ -59,7 +59,7 @@ int collectElments(T *aArray, T *b[10])
 }
 
 template<class T>
-int distributeElments(T* aArray, T *b[10], int digits, int len)
+int distributeElments(T* aArray, T b[10][len+1], int digits, int len)
 {
 	int divisor = 10;//除数
 	for(int i = 1; i < digits; i++)
@@ -90,7 +90,7 @@ int BucketSort(T *aArray, int len)
 		collectElments(aArray,b);
 		
 		if(i != digits)
-			zeroBucket(b, len);
+			zeroBucket(b);
 	}
 	
 	return sSUCCESS;
