@@ -98,7 +98,7 @@ int main(int argc, char ** argv)
 	PrintArray<int>(iArray, iSize);
 	
 	
-	BucketSort_template(0.0, 1.0);
+	BucketSort_template(0.0, 1.0);*/
 	/*
 	double dArray[] = { 12.3,90.0,123.44,22.5,99.4,34.6,23.3,78.5,20.0 };
 	int dSize = sizeof(dArray) / sizeof(double);
@@ -111,9 +111,9 @@ int main(int argc, char ** argv)
 	cout <<"排序后："<<endl;
 	PrintArray<double>(dArray, dSize);
 	*/
-	return sSUCCESS;
-}
-*/
+//	return sSUCCESS;
+//}
+
 
 
 #include<iostream>
