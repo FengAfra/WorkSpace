@@ -117,13 +117,13 @@ int main(int argc, char ** argv)
 
 
 #include<iostream>
-usingnamespace std;
+using namespace std;
 
 int a[]={1,255,8,6,25,47,14,35,58,75,96,158,657};
 const int len=sizeof(a)/sizeof(int);
 int b[10][len+1]={0};//将b全部置0
 void bucketSort(int a[]);//桶排序函数
-void distribute Elments(int a[],int b[10][len+1],int digits);
+void distributeElments(int a[],int b[10][len+1],int digits);
 void collectElments(int a[],int b[10][len+1]);
 int numOfDigits(int a[]);
 void zeroBucket(int b[10][len+1]);//将b数组中的全部元素置0
