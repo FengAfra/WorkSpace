@@ -22,7 +22,7 @@ int PrintArray(T *aArray, int aCount)
 
 //将b数组中的全部元素置0
 template<class T>
-int zeroBucket(T b[10][len+1])
+int zeroBucket(T **b, int len)
 {
 	for(int i = 0; i < 10; i++)
 		for(int j = 0; j < len + 1; j++)
@@ -49,7 +49,7 @@ int numOfDigits(T *aArray, int len)
 }
 
 template<class T>
-int collectElments(T *aArray, T b[10][len+1])
+int collectElments(T *aArray, T **b)
 {
 	int k = 0;
 	for(int i = 0; i < 10; i++)
@@ -59,7 +59,7 @@ int collectElments(T *aArray, T b[10][len+1])
 }
 
 template<class T>
-int distributeElments(T* aArray, T b[10][len+1], int digits, int len)
+int distributeElments(T* aArray, T **b, int digits, int len)
 {
 	int divisor = 10;//除数
 	for(int i = 1; i < digits; i++)
@@ -81,7 +81,12 @@ template<class T>
 int BucketSort(T *aArray, int len)
 {
 	int digits=numOfDigits(aArray, len);
-	int b[10][len+1]={0};//将b全部置0
+	//int b[10][len+1]={0};//将b全部置0
+	
+	T **b = NULL;
+	b = new T *[10];
+	for(int i = 0; i < 10; i++)
+		b[i] = new T(len + 1);
 	
 	for(int i = 1; i <= digits; i++)
 	{
@@ -100,15 +105,15 @@ int main(int argc, char ** argv)
 {
 	//int iArray[] = { 49,38,65,97,76,13,27,49,10 };
 	int iArray[]={1,255,8,6,25,47,14,35,58,75,96,158,657};
-	int iSize = sizeof(iArray) / sizeof(int);
+	const int len = sizeof(iArray) / sizeof(int);
 	
 	cout <<"排序前："<<endl;
-	PrintArray<int>(iArray, iSize);
+	PrintArray<int>(iArray, len);
 
-	BucketSort(iArray, iSize);
+	BucketSort(iArray, len);
 	
 	cout <<"排序后："<<endl;
-	PrintArray<int>(iArray, iSize);
+	PrintArray<int>(iArray, len);
 	
 
 	/*
