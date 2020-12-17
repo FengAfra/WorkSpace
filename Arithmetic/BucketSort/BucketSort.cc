@@ -32,7 +32,7 @@ int zeroBucket(T **b, int len)
 }
 
 template<class T>
-int numOfDigits(T *aArray)
+int numOfDigits(T *aArray, int len)
 {
 	int largest = 0;
 	for(int i = 0; i < len; i++)//获取最大值
@@ -59,7 +59,7 @@ int collectElments(T *aArray, T **b)
 }
 
 template<class T>
-int  distributeElments(T* aArray, T **b, int digits, int len)
+int distributeElments(T* aArray, T **b, int digits, int len)
 {
 	int divisor = 10;//除数
 	for(int i = 1; i < digits; i++)
@@ -80,7 +80,7 @@ int  distributeElments(T* aArray, T **b, int digits, int len)
 template<class T>
 int BucketSort(T *aArray, int len)
 {
-	int digits=numOfDigits(aArray);
+	int digits=numOfDigits(aArray, len);
 	int b[10][len+1]={0};//将b全部置0
 	
 	for(int i = 1; i <= digits; i++)
