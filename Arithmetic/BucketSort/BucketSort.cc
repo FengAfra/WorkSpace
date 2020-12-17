@@ -88,6 +88,10 @@ int BucketSort(T *aArray, int len)
 	for(int i = 0; i < 10; i++)
 		b[i] = new T(len + 1);
 	
+	for(int i = 0; i < 10; i ++)
+		for(int j = 0; j < len + 1; j++)
+			b[i][j] = 0;
+	
 	for(int i = 1; i <= digits; i++)
 	{
 		distributeElments(aArray, b, i, len);
