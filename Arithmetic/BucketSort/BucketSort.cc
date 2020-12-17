@@ -95,7 +95,7 @@ int BucketSort(T *aArray, int len)
 		collectElments(aArray,b);
 		
 		if(i != digits)
-			zeroBucket(b);
+			zeroBucket(b, len);
 	}
 	
 	return sSUCCESS;
