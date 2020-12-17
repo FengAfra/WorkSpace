@@ -116,7 +116,7 @@ int main(int argc, char ** argv)
 	cout <<"排序前："<<endl;
 	PrintArray<int>(iArray, len);
 
-	BucketSort(iArray, len);
+	BucketSort<int>(iArray, len);
 	
 	cout <<"排序后："<<endl;
 	PrintArray<int>(iArray, len);
