@@ -98,7 +98,7 @@ int BucketSort(T *aArray, int len)
 			zeroBucket(b, len);
 	}
 	
-	for (i = 0;i < 10; i++)
+	for (int i = 0;i < 10; i++)
     {
         delete[] b[i];
     }
