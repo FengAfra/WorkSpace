@@ -80,20 +80,24 @@ int distributeElments(T* aArray, T **b, int digits, int len)
 template<class T>
 int BucketSort(T *aArray, int len)
 {
+	//获取二维数中的最大值
 	int digits=numOfDigits(aArray, len);
 	//int b[10][len+1]={0};//将b全部置0
 	
+	//初始化二维指针
 	T **b = NULL;
 	b = new T *[10];
 	for(int i = 0; i < 10; i++)
-		b[i] = new T(len + 1);
+		b[i] = new T[len + 1]();
 	
+	//初始化二数组
 	for(int i = 0; i < 10; i ++)
 		for(int j = 0; j < len + 1; j++)
 			b[i][j] = 0;
 	
 	for(int i = 1; i <= digits; i++)
 	{
+		//将待排序数组的值分别按照位数进行排序，并存储在B中
 		distributeElments(aArray, b, i, len);
 		
 		collectElments(aArray,b);
@@ -102,11 +106,12 @@ int BucketSort(T *aArray, int len)
 			zeroBucket(b, len);
 	}
 	
-	for (int i = 0;i < len + 1; i++)
-    {
-        delete[] b[i];
-    }
-    delete[] b;
+	//释放二维指针空间
+	for (int i = 0;i < 10; i++)
+	{
+		delete []b[i];
+	}
+	delete []b;
 	
 	return sSUCCESS;
 }
@@ -115,29 +120,16 @@ int main(int argc, char ** argv)
 {
 	//int iArray[] = { 49,38,65,97,76,13,27,49,10 };
 	int iArray[]={1,255,8,6,25,47,14,35,58,75,96,158,657};
-	const int len = sizeof(iArray) / sizeof(int);
+	int iSize = sizeof(iArray) / sizeof(int);
 	
 	cout <<"排序前："<<endl;
-	PrintArray<int>(iArray, len);
+	PrintArray<int>(iArray, iSize);
 
-	BucketSort<int>(iArray, len);
+	BucketSort<int>(iArray, iSize);
 	
 	cout <<"排序后："<<endl;
-	PrintArray<int>(iArray, len);
+	PrintArray<int>(iArray, iSize);
 	
-
-	/*
-	double dArray[] = { 12.3,90.0,123.44,22.5,99.4,34.6,23.3,78.5,20.0 };
-	int dSize = sizeof(dArray) / sizeof(double);
-	
-	cout <<"排序前："<<endl;
-	PrintArray<double>(dArray, dSize);
-	
-	BucketSort_template(dArray, dSize);
-	
-	cout <<"排序后："<<endl;
-	PrintArray<double>(dArray, dSize);
-	*/
 	return sSUCCESS;
 }
 
