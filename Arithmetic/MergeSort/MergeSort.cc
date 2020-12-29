@@ -86,7 +86,7 @@ void MergeSort(int array[], int nStart_, int nEnd_, CompareFunc comp)
 }
 
 // 比较函数
-bool less(int lhs, int rhs)
+bool judge(int lhs, int rhs)
 {
 	return lhs < rhs;
 }
@@ -99,21 +99,9 @@ int main(int argc, char ** argv)
 	cout <<"排序前："<<endl;
 	PrintArray<int>(iArray, iSize);
 	
-	MergeSort(iArray, 0, iSize, less);
+	MergeSort(iArray, 0, iSize, judge);
 	
 	cout <<"排序后："<<endl;
 	PrintArray<int>(iArray, iSize);
-	/*
-	double dArray[] = { 12.3,90.0,123.44,22.5,99.4,34.6,23.3,78.5,20.0 };
-	int dSize = sizeof(dArray) / sizeof(double);
-	
-	cout <<"排序前："<<endl;
-	PrintArray<double>(dArray, dSize);
-	
-	ShellSort<double>(dArray, dSize);
-	
-	cout <<"排序后："<<endl;
-	PrintArray<double>(dArray, dSize);
-	*/
 	return sSUCCESS;
 };
